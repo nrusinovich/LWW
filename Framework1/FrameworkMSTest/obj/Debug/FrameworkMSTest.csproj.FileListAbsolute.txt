@@ -1,0 +1,6 @@
+C:\Users\Nadzeya_Rusinovich\documents\visual studio 2015\Projects\Framework1\FrameworkMSTest\bin\Debug\FrameworkMSTest.exe.config
+C:\Users\Nadzeya_Rusinovich\documents\visual studio 2015\Projects\Framework1\FrameworkMSTest\bin\Debug\FrameworkMSTest.exe
+C:\Users\Nadzeya_Rusinovich\documents\visual studio 2015\Projects\Framework1\FrameworkMSTest\bin\Debug\FrameworkMSTest.pdb
+C:\Users\Nadzeya_Rusinovich\documents\visual studio 2015\Projects\Framework1\FrameworkMSTest\obj\Debug\FrameworkMSTest.csprojResolveAssemblyReference.cache
+C:\Users\Nadzeya_Rusinovich\documents\visual studio 2015\Projects\Framework1\FrameworkMSTest\obj\Debug\FrameworkMSTest.exe
+C:\Users\Nadzeya_Rusinovich\documents\visual studio 2015\Projects\Framework1\FrameworkMSTest\obj\Debug\FrameworkMSTest.pdb
