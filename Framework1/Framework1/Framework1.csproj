@@ -81,33 +81,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdvancedSearchPage.cs" />
+    <Compile Include="Pages\AdvancedSearchPage.cs" />
     <Compile Include="Category.cs" />
-    <Compile Include="LoginPage.cs" />
+    <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Tests\AdvancedSearchTest.cs" />
     <Compile Include="Tests\BrowserStackNUnitTest.cs" />
     <Compile Include="Tests\LoginTests.cs" />
     <Compile Include="MS.cs" />
     <Compile Include="Tests\SimpleSearch.cs" />
-    <Compile Include="Tests\SingleTest.cs" />
     <Compile Include="WebDriver.cs" />
     <Compile Include="DataInput.cs" />
-    <Compile Include="HomePage.cs" />
     <Compile Include="Journal.cs" />
     <Compile Include="Tests\NavigationTest.cs" />
-    <Compile Include="MainPage.cs" />
+    <Compile Include="Pages\MainPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resource1.Designer.cs">
+    <Compile Include="Config\Resource1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
+    <None Include="Config\App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
+    <None Include="Config\packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
@@ -125,7 +123,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resource1.resx">
+    <EmbeddedResource Include="Config\Resource1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -134,6 +132,9 @@
     <Content Include="XMLFile1.xml">
       <SubType>Designer</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MSTests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.2.27.0\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.27.0\build\Selenium.WebDriver.ChromeDriver.targets')" />

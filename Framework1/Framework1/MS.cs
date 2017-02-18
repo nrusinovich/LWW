@@ -11,37 +11,32 @@ namespace Framework1
     public class MS
     {
         private TestContext testContextInstance;
-        private IWebDriver driver;
+        private static IWebDriver driver = WebDriver.InitDriver();
+        public static string[] list = DataInput.GetTestSelection();
         public TestContext TestContext
         {
             get { return testContextInstance; }
             set { testContextInstance = value; }
         }
-        public MS(IWebDriver driver)
+
+
+        [TestMethod]
+        [DeploymentItem("Framework1\\XMLFile1.xml")]
+           [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
+                       @"C:\Users\Nadzeya_Rusinovich\documents\visual studio 2015\Projects\Framework1\Framework1\XMLFile1.xml", "Journal",
+                      DataAccessMethod.Sequential)]
+        public void MSSearchPositive()
         {
-            this.driver = driver;
+           var page = new MainPage(driver);
+           string name = (string)TestContext.DataRow["Data"];
+            page.GoToJournalMainPage(name);
+            page.SearchBox.SendKeys("health");
+            page.SearchButton.Click();
         }
-        Dictionary<string, Journal> journals = DataInput.GetFile();
-        public static string[] list = DataInput.GetTestSelection();
         [TestMethod]
         [DeploymentItem("Framework1\\XMLFile1.xml")]
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
                     @"C:\Users\Nadzeya_Rusinovich\documents\visual studio 2015\Projects\Framework1\Framework1\XMLFile1.xml", "Journal",
-                     DataAccessMethod.Sequential)]
-        public void MSSearchPositive()
-        {
-           var page = new MainPage(driver);
-            string name = (string)TestContext.DataRow["Data"];
-            page.GoToJournalMainPage(name);
-            page.SearchBox.SendKeys("health");
-            page.SearchButton.Click();
-
-
-        }
-        [TestMethod]
-        [DeploymentItem(@"C:\Users\ASUS\Documents\Visual Studio 2015\Projects\Framework1\Framework1\XMLFile1.xml")]
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
-                    @"C:\Users\ASUS\Documents\Visual Studio 2015\Projects\Framework1\Framework1\XMLFile1.xml", "Journal",
                      DataAccessMethod.Sequential)]
         public void MSSearchNegative()
         {
@@ -52,6 +47,11 @@ namespace Framework1
             page.SearchButton.Click();
 
 
+        }
+        [ClassCleanup]
+        public void CleanAll()
+        {
+            driver.Quit();
         }
     }
 }

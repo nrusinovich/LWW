@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System.Threading;
 
 namespace Framework1.Tests
 {
@@ -14,16 +15,18 @@ namespace Framework1.Tests
     public class SimpleSearch
     {
         IWebDriver driver;
-        public static string[] list = new string[] {"jonajournal" };//DataInput.GetTestSelection();
+        public static string[] list = DataInput.GetTestSelection();
          [OneTimeSetUp]
         public void SetUp()
         {
             // WebDriver.Driver(GetType().Name);
+
+            ThreadPool.SetMinThreads(4, 4);
             driver = WebDriver.InitDriver();
             driver.Manage().Window.Maximize();
 
         }
-        [Ignore("")]
+        
         [Test, TestCaseSource("list")]
         public void SearchPositive(string name)
         {
@@ -34,7 +37,7 @@ namespace Framework1.Tests
 
 
         }
-        [Test, TestCaseSource("list")]
+       /* [Test, TestCaseSource("list")]
         public void SearchNegative(string name)
         {
             var page = new MainPage(driver);
@@ -42,10 +45,7 @@ namespace Framework1.Tests
             page.SearchBox.SendKeys("zxcvbnm,");
             page.SearchButton.Click();
             Assert.True(page.GetResult() == "0 results");
-            
-
-
-        }
+         }*/
         [OneTimeTearDown]
         public void CleanUp()
         {

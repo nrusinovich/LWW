@@ -6,21 +6,24 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System.Threading;
 
 namespace Framework1
 {
     [Parallelizable(ParallelScope.Fixtures)]
     [TestFixture]
-    class LoginTests
+    public class LoginTests
     {
-        Dictionary<string, Journal> journals = DataInput.GetFile();
-        IWebDriver driver = new ChromeDriver();
-        public static string[] list = new string[] { "jonajournal" };//DataInput.GetTestSelection();
+        IWebDriver driver;
+        public static string[] list = DataInput.GetTestSelection();
         
         [OneTimeSetUp]
         public void SetUp()
         {
+
+            ThreadPool.SetMinThreads(4, 4);
             //WebDriver.Driver(GetType().Name);
+            driver = WebDriver.InitDriver();
             driver.Manage().Window.Maximize();
         }
 
@@ -30,20 +33,21 @@ namespace Framework1
         {
             var journalLoginPage = new LoginPage(driver);
             journalLoginPage.GoToJournalLoginPage(name);
-            journalLoginPage.Login(Resource1.login, Resource1.password);
-            if (journalLoginPage.LogoutLink.Displayed)
-                journalLoginPage.LogOut();
-            else
-                Assert.True(false);
+            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15));
+            journalLoginPage.Login(Config.Resource1.login, Config.Resource1.password);
+
+            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(5));
+            journalLoginPage.LogOut();
+         
         }
-        [Test, TestCaseSource("list")]
+        /*[Test, TestCaseSource("list")]
         public void LoginTestNegative(string name)
         {
             var journalLoginPage = new LoginPage(driver);
             journalLoginPage.GoToJournalLoginPage(name);
             journalLoginPage.Login(Resource1.login, " ");
 
-        }
+        }*/
         [OneTimeTearDown]
         public void CleanUp()
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Excel = Microsoft.Office.Interop.Excel;
 namespace Framework1
@@ -45,7 +46,7 @@ namespace Framework1
         public static Dictionary <string, Journal> GetFile()
         {
             Dictionary<string,Journal> journals = new Dictionary<string, Journal>();
-            var workBook = excelApp.Workbooks.Open(Resource1.TestDataFile);
+            var workBook = excelApp.Workbooks.Open(Config.Resource1.TestDataFile);
             foreach (var sheet in workBook.Sheets)
             {
                 var wsheet = (Excel.Worksheet)sheet;
@@ -59,7 +60,7 @@ namespace Framework1
         public static string[] GetTestSelection()
         {
             string[] journalNames=null;
-            var workBook = excelApp.Workbooks.Open(Resource1.TestSelectionFile);
+            var workBook = excelApp.Workbooks.Open(Config.Resource1.TestSelectionFile);
             foreach (var sheet in workBook.Sheets)
                 journalNames = GetTestSelection1((Excel.Worksheet)sheet).ToArray();
 
@@ -78,7 +79,10 @@ namespace Framework1
         }
         static void Main(string[] args)
         {
-        }
+       
+            ThreadPool.SetMinThreads(4, 4);
+       
+    }
 
     }
 }

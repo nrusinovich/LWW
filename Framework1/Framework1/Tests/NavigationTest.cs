@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System.Threading;
 
 namespace Framework1
 {
@@ -14,12 +15,14 @@ namespace Framework1
     class NavigationTest
     {
         Dictionary<string, Journal> journals = DataInput.GetFile();
-        public static string[] list = new string []{"jonajournal"};//DataInput.GetTestSelection();
-        static IWebDriver driver = new ChromeDriver();
+        public static string[] list = DataInput.GetTestSelection();
+        IWebDriver driver;
         [OneTimeSetUp]
         public void SetUp()
         {
-            // WebDriver.Driver(GetType().Name);
+
+            ThreadPool.SetMinThreads(4, 4);
+            driver = WebDriver.InitDriver();
             driver.Manage().Window.Maximize();
 
         }
@@ -33,6 +36,8 @@ namespace Framework1
             Assert.True(j != null);
 
             page.GoToJournalMainPage(j.Name + "/");
+
+            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
             foreach (Category cat in j.menuContent)
             {
                 MainPage.SetCategoryLocator(cat.Name);
@@ -46,9 +51,8 @@ namespace Framework1
         }
         [OneTimeTearDown]
         public void CleanUp()
-        {
-            //WebDriver.KillDriver(GetType().Name);
-            driver.Quit();
+        {           
+           driver.Quit();
         }
 
     }
