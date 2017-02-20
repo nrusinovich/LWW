@@ -12,7 +12,6 @@ namespace Framework1
     {
         private TestContext testContextInstance;
         private static IWebDriver driver = WebDriver.InitDriver();
-        public static string[] list = DataInput.GetTestSelection();
         public TestContext TestContext
         {
             get { return testContextInstance; }
@@ -21,27 +20,25 @@ namespace Framework1
 
 
         [TestMethod]
-        [DeploymentItem("Framework1\\XMLFile1.xml")]
-           [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
-                       @"C:\Users\Nadzeya_Rusinovich\documents\visual studio 2015\Projects\Framework1\Framework1\XMLFile1.xml", "Journal",
+        [DeploymentItem(@"..\..\Data\journals.xml")]
+           [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", @"..\..\Data\journals.xml", "Journal",
                       DataAccessMethod.Sequential)]
         public void MSSearchPositive()
         {
            var page = new MainPage(driver);
-           string name = (string)TestContext.DataRow["Data"];
+           string name = (string) TestContext.DataRow["string"];
             page.GoToJournalMainPage(name);
             page.SearchBox.SendKeys("health");
             page.SearchButton.Click();
         }
         [TestMethod]
-        [DeploymentItem("Framework1\\XMLFile1.xml")]
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
-                    @"C:\Users\Nadzeya_Rusinovich\documents\visual studio 2015\Projects\Framework1\Framework1\XMLFile1.xml", "Journal",
+        [DeploymentItem(@"..\..\Data\journals.xml")]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",@"..\..\Data\journals.xml", "string",
                      DataAccessMethod.Sequential)]
         public void MSSearchNegative()
         {
             var page = new MainPage(driver);
-            string name = (string)TestContext.DataRow["Data"];
+            string name = (string)TestContext.DataRow["string"];
             page.GoToJournalMainPage(name);
             page.SearchBox.SendKeys("zxcvbnm,");
             page.SearchButton.Click();
@@ -49,7 +46,7 @@ namespace Framework1
 
         }
         [ClassCleanup]
-        public void CleanAll()
+        public static void CleanAll()
         {
             driver.Quit();
         }

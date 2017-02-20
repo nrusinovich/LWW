@@ -61,11 +61,38 @@ namespace Framework1.Config {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to chrome.
+        ///   Looks up a localized string similar to remote.
         /// </summary>
         internal static string browser {
             get {
                 return ResourceManager.GetString("browser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to huZ9vpNzzTJHF47Jcwiq.
+        /// </summary>
+        internal static string BSkey {
+            get {
+                return ResourceManager.GetString("BSkey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://hub-cloud.browserstack.com/wd/hub/.
+        /// </summary>
+        internal static string BSuri {
+            get {
+                return ResourceManager.GetString("BSuri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to nadya26.
+        /// </summary>
+        internal static string BSuser {
+            get {
+                return ResourceManager.GetString("BSuser", resourceCulture);
             }
         }
         
@@ -97,7 +124,7 @@ namespace Framework1.Config {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C:\Users\Nadzeya_Rusinovich\Downloads\Responsive-Batch-5.xlsx.
+        ///   Looks up a localized string similar to ..\..\Data\Responsive-Batch-5.xlsx.
         /// </summary>
         internal static string TestDataFile {
             get {
@@ -111,6 +138,15 @@ namespace Framework1.Config {
         internal static string TestSelectionFile {
             get {
                 return ResourceManager.GetString("TestSelectionFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ..\..\Data\journals.xml.
+        /// </summary>
+        internal static string TestSelectionXml {
+            get {
+                return ResourceManager.GetString("TestSelectionXml", resourceCulture);
             }
         }
     }

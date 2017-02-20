@@ -77,12 +77,7 @@ namespace Framework1
             }
             return journalNames;
         }
-        static void Main(string[] args)
-        {
-       
-            ThreadPool.SetMinThreads(4, 4);
-       
-    }
+
 
     }
 }

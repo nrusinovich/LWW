@@ -82,16 +82,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\AdvancedSearchPage.cs" />
-    <Compile Include="Category.cs" />
+    <Compile Include="Objects\Category.cs" />
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Tests\AdvancedSearchTest.cs" />
     <Compile Include="Tests\BrowserStackNUnitTest.cs" />
     <Compile Include="Tests\LoginTests.cs" />
     <Compile Include="MS.cs" />
     <Compile Include="Tests\SimpleSearch.cs" />
-    <Compile Include="WebDriver.cs" />
+    <Compile Include="Objects\WebDriver.cs" />
     <Compile Include="DataInput.cs" />
-    <Compile Include="Journal.cs" />
+    <Compile Include="Objects\Journal.cs" />
     <Compile Include="Tests\NavigationTest.cs" />
     <Compile Include="Pages\MainPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,6 +100,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
+    <Compile Include="XmlInput.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\App.config">
@@ -129,6 +130,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\journals.xml" />
     <Content Include="XMLFile1.xml">
       <SubType>Designer</SubType>
     </Content>

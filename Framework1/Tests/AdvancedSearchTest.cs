@@ -16,7 +16,7 @@ namespace Framework1.Tests
     [TestFixture]
     public class AdvancedSearchTest
     {
-        public static string[] list = DataInput.GetTestSelection();
+        List<string> list = XmlInput.ReadFromXml();
         IWebDriver driver;
         [OneTimeSetUp]
         public void SetUp()

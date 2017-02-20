@@ -30,11 +30,11 @@ namespace Framework1
                     break;
                 case "remote":
                     DesiredCapabilities capability = DesiredCapabilities.Firefox();
-                    capability.SetCapability("browserstack.user", "nadya26");
-                    capability.SetCapability("browserstack.key", "huZ9vpNzzTJHF47Jcwiq");
+                    capability.SetCapability("browserstack.user", Config.Resource1.BSuser);
+                    capability.SetCapability("browserstack.key", Config.Resource1.BSkey);
 
                     driver = new RemoteWebDriver(
-                      new Uri("http://hub-cloud.browserstack.com/wd/hub/"), capability
+                      new Uri(Config.Resource1.BSuri), capability
                     );
                     break;
 
