@@ -24,9 +24,6 @@ namespace Framework1.Tests
             // WebDriver.Driver(GetType().Name);
             driver = WebDriver.InitDriver();
             driver.Manage().Window.Maximize();
-
-            ThreadPool.SetMinThreads(4, 4);
-
         }
 
         [Test, TestCaseSource("list")]
@@ -34,13 +31,11 @@ namespace Framework1.Tests
         {
             var page = new AdvancedSearchPage(driver);
             page.GoToAdvancedSearch(name);
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
             page.ExpandSearch();
             page.SetDate(1);//from 0 to 5
             page.SetContentType(false, false);
             page.FillRow(1, "All Fields", "Video");
             page.SearchButton.Click();
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
             Assert.True(page.GetResult() != "0 results");
         }
         [OneTimeTearDown]

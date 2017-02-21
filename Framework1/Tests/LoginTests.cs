@@ -33,10 +33,7 @@ namespace Framework1
         {
             var journalLoginPage = new LoginPage(driver);
             journalLoginPage.GoToJournalLoginPage(name);
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15));
             journalLoginPage.Login(Config.Resource1.login, Config.Resource1.password);
-
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(5));
             journalLoginPage.LogOut();
          
         }

@@ -32,3 +32,9 @@ C:\Users\ASUS\Documents\Visual Studio 2015\Projects\LWW\LWW\Framework1\bin\Debug
 C:\Users\ASUS\Documents\Visual Studio 2015\Projects\LWW\LWW\Framework1\bin\Debug\nunit.framework.xml
 C:\Users\ASUS\Documents\Visual Studio 2015\Projects\LWW\LWW\Framework1\bin\Debug\WebDriver.xml
 C:\Users\ASUS\Documents\Visual Studio 2015\Projects\LWW\LWW\Framework1\bin\Debug\WebDriver.Support.xml
+C:\Users\Nadzeya_Rusinovich\LWW\Framework1\bin\Debug\Framework1.exe.config
+C:\Users\Nadzeya_Rusinovich\LWW\Framework1\obj\Debug\Framework1.exe
+C:\Users\Nadzeya_Rusinovich\LWW\Framework1\obj\Debug\Framework1.pdb
+C:\Users\Nadzeya_Rusinovich\LWW\Framework1\obj\Debug\Framework1.csprojResolveAssemblyReference.cache
+C:\Users\Nadzeya_Rusinovich\LWW\Framework1\obj\Debug\Framework1.Config.Resource1.resources
+C:\Users\Nadzeya_Rusinovich\LWW\Framework1\obj\Debug\Framework1.csproj.GenerateResource.Cache

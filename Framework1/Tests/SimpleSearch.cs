@@ -19,9 +19,6 @@ namespace Framework1.Tests
          [OneTimeSetUp]
         public void SetUp()
         {
-            // WebDriver.Driver(GetType().Name);
-
-            ThreadPool.SetMinThreads(4, 4);
             driver = WebDriver.InitDriver();
             driver.Manage().Window.Maximize();
 
@@ -49,7 +46,6 @@ namespace Framework1.Tests
         [OneTimeTearDown]
         public void CleanUp()
         {
-            //WebDriver.KillDriver(GetType().Name);
             driver.Quit();
         }
         

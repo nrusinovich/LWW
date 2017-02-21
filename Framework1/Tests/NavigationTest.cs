@@ -20,11 +20,8 @@ namespace Framework1
         [OneTimeSetUp]
         public void SetUp()
         {
-
-            ThreadPool.SetMinThreads(4, 4);
             driver = WebDriver.InitDriver();
             driver.Manage().Window.Maximize();
-
         }
 
         [Test, TestCaseSource("list")]
